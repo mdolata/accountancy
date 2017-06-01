@@ -3,9 +3,7 @@ package DAO;
 import Model.User;
 
 import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Created by mateu on 31.05.2017 , 21:54.
@@ -16,7 +14,7 @@ import java.util.Optional;
 public class UserDAOArrayList implements UserDAO {
 
     private List<User> usersList = new ArrayList<>();
-    private Integer maxId = 1;
+    private Integer maxId = 0;
 
 
     @Override
@@ -51,6 +49,15 @@ public class UserDAOArrayList implements UserDAO {
             usersList.add(newUser);
         }
         return Optional.ofNullable(newUser);
+    }
+
+    @Override
+    public Set<User> getAllUsers() {
+        Set<User> usersSet = new HashSet<>();
+        for (User user : usersList){
+            usersSet.add(user);
+        }
+        return usersSet;
     }
 
     private Boolean isUserExistsByLogin(String login){

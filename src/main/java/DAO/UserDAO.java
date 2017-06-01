@@ -3,6 +3,7 @@ package DAO;
 import Model.User;
 
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Created by mateu on 31.05.2017 , 21:50.
@@ -13,5 +14,7 @@ public interface UserDAO {
     Optional<User> getUserByLogin(String login);
 
     Optional<User> addNewUser(String login, String password);
+
+    Set<User> getAllUsers();
 
 }
